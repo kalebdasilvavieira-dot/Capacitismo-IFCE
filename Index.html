@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Sem Capacitismo IFCE Baturité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: cabeçalho branco com links de texto; uma coluna de leitura estreita; listas separadas por linhas finas, sem cartões */
+:root{
+  --bg:#ffffff;
+  --ink:#18201b;
+  --muted:#5f6b63;
+  --line:#e4e8e5;
+  --accent:#1b6b3a;
+  --no:#b23a26;
+  --accent-soft:#e6f2ea;
+  --sun:#f2b51d;
+  --sun-soft:#fdf3d6;
+  --on-accent:#ffffff;
+  --head:#1b6b3a;
+  --head-ink:#ffffff;
+  --font:"Atkinson Hyperlegible", Verdana, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121614;--ink:#e8ede9;--muted:#9aa69e;--line:#262d29;--accent:#6fcb94;--no:#ff9c88;--accent-soft:#16291e;--sun:#f5c445;--sun-soft:#2b2512;--on-accent:#0e1a13;--head:#174d2d;--head-ink:#ffffff;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614;--ink:#e8ede9;--muted:#9aa69e;--line:#262d29;--accent:#6fcb94;--no:#ff9c88;--accent-soft:#16291e;--sun:#f5c445;--sun-soft:#2b2512;--on-accent:#0e1a13;--head:#174d2d;--head-ink:#ffffff;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.0625rem;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head)}
+.wrap{max-width:44rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{line-height:1.15;text-wrap:balance;margin:0;font-weight:700}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:30;background:var(--bg);padding:.5rem 1rem}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--head);color:var(--head-ink)}
+header :focus-visible{outline-color:var(--sun)}
+.bar{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.5rem;padding-block:1rem .75rem}
+.brand{font-weight:700;font-size:1rem}
+.brand span{opacity:.8;font-weight:400}
+nav{display:flex;gap:1.25rem;overflow-x:auto;scrollbar-width:none}
+nav a{color:var(--head-ink);opacity:.85;text-decoration:none;font-size:.95rem;padding-block:.35rem;white-space:nowrap;border-bottom:2px solid transparent}
+nav a:hover{opacity:1}
+nav a[aria-current="page"]{opacity:1;font-weight:700;border-bottom-color:var(--sun)}
+.hl{color:var(--accent);background:linear-gradient(transparent 64%,color-mix(in srgb,var(--sun) 50%,transparent) 0)}
+
+main{padding-block:3.5rem 5rem}
+.page{display:grid;gap:3rem}
+.intro{display:grid;gap:1rem}
+.eyebrow{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:clamp(2.2rem,6vw,3.25rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4.5vw,2.2rem);letter-spacing:-.015em}
+h3{font-size:1.1rem}
+.lead{font-size:1.2rem;color:var(--muted)}
+.muted{color:var(--muted)}
+.prose{display:grid;gap:1rem}
+
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rows > li{border-bottom:1px solid var(--line)}
+
+/* início */
+.paths a{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.1rem;text-decoration:none;color:var(--ink)}
+.paths a div{display:grid;gap:.15rem;min-width:0;flex:1}
+.dot{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1rem}
+.paths a .muted{font-size:.95rem}
+.paths a .arrow{color:var(--muted);transition:transform .15s}
+.paths a:hover .arrow{color:var(--accent);transform:translateX(3px)}
+.note{font-size:.95rem;color:var(--ink);background:var(--sun-soft);border-radius:10px;padding:1rem 1.25rem}
+.note strong{color:var(--ink)}
+
+/* entenda */
+.defs > li,.forms > li{display:grid;gap:.2rem;padding-block:1rem}
+.defs p,.forms p{color:var(--muted)}
+.defs strong,.forms strong{color:var(--accent)}
+
+/* palavras */
+.filters{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.filters button{font:inherit;font-size:.95rem;background:none;border:0;padding:.4rem 0;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;min-height:40px}
+.filters button:hover{color:var(--ink)}
+.filters button[aria-pressed="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:700}
+.swap{display:grid;gap:.35rem;padding-block:1.15rem}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;gap:.5rem 1rem;align-items:baseline}
+.pair > *{min-width:0}
+.say-no{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--no);text-decoration-thickness:1.5px}
+.say-yes{font-weight:700;color:var(--accent)}
+.pair .to{color:var(--accent)}
+.why{font-size:.95rem;color:var(--muted)}
+.legend{display:flex;gap:1.5rem;font-size:.85rem;color:var(--muted)}
+.legend .say-yes{color:var(--accent)}
+@media (max-width:520px){
+  .pair{grid-template-columns:1fr}
+  .pair .to{display:none}
+  .say-yes::before{content:"→ ";color:var(--accent);font-weight:400}
+}
+
+/* atitudes */
+.dos > li{display:grid;gap:.2rem;padding-block:1rem;padding-left:2.25rem;position:relative}
+.dos > li::before{content:"✓";position:absolute;left:0;top:1.1rem;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:.8rem;font-weight:700}
+.dos p{color:var(--muted)}
+.help{display:grid;gap:.75rem;padding:1.5rem;border-radius:12px;background:var(--accent-soft)}
+.help p{color:var(--muted)}
+.help strong{color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding-block:1.5rem 2rem;color:var(--muted);font-size:.85rem}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header>
+  <div class="wrap bar">
+    <div class="brand">Sem Capacitismo <span>· IFCE Baturité</span></div>
+    <nav aria-label="Páginas do site">
+      <a href="#inicio" data-page="inicio">Início</a>
+      <a href="#entenda" data-page="entenda">O que é</a>
+      <a href="#palavras" data-page="palavras">Não diga / Diga</a>
+      <a href="#atitudes" data-page="atitudes">Atitudes</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap" tabindex="-1">
+
+<!-- INÍCIO -->
+<section class="page" data-page="inicio" aria-labelledby="h-inicio">
+  <div class="intro">
+    <p class="eyebrow">IFCE campus Baturité</p>
+    <h1 id="h-inicio">Fale com respeito. Pessoa com deficiência é, antes de tudo, <span class="hl">pessoa</span>.</h1>
+    <p class="lead">Capacitismo é tratar alguém como menos capaz por ter uma deficiência. Ele aparece nas piadas, nos apelidos e até nos elogios. Aqui você vê o que evitar e o que dizer no lugar.</p>
+  </div>
+
+  <ul class="rows paths">
+    <li><a href="#entenda"><span class="dot" style="background:var(--accent);color:var(--on-accent)" aria-hidden="true">?</span><div><strong>O que é capacitismo</strong><span class="muted">O conceito e como ele aparece.</span></div><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a href="#palavras"><span class="dot" style="background:var(--sun);color:#18201b" aria-hidden="true">Aa</span><div><strong>Não diga / Diga</strong><span class="muted">22 termos e expressões, com a troca certa.</span></div><span class="arrow" aria-hidden="true">→</span></a></li>
+    <li><a href="#atitudes"><span class="dot" style="background:var(--no);color:var(--on-accent)" aria-hidden="true">✓</span><div><strong>Atitudes</strong><span class="muted">Como agir e onde buscar apoio no campus.</span></div><span class="arrow" aria-hidden="true">→</span></a></li>
+  </ul>
+
+  <p class="note"><strong>Discriminar é crime.</strong> A Lei Brasileira de Inclusão (Lei nº 13.146/2015, art. 88) prevê reclusão de 1 a 3 anos e multa para quem pratica, induz ou incita discriminação de pessoa em razão de sua deficiência.</p>
+</section>
+
+<!-- ENTENDA -->
+<section class="page" data-page="entenda" aria-labelledby="h-entenda" hidden>
+  <div class="intro">
+    <p class="eyebrow">O que é</p>
+    <h2 id="h-entenda">Capacitismo é medir o valor de alguém pelo corpo ou pela mente.</h2>
+  </div>
+  <div class="prose">
+    <p>É o preconceito contra pessoas com deficiência. Parte da ideia de que existe um corpo “normal” e que quem foge dele é incapaz, digno de pena ou um peso. Muitas vezes acontece sem intenção, porque está nas palavras que aprendemos desde criança.</p>
+    <p>Pela Lei Brasileira de Inclusão, a deficiência é um impedimento de longo prazo que, junto com as barreiras do ambiente, limita a participação na sociedade. A barreira também está na escada sem rampa, no vídeo sem legenda e na fala preconceituosa.</p>
+     </div>
+
+  <div class="prose">
+    <h3>Tipos de deficiência</h3>
+    <ul class="rows defs">
+      <li><strong>Física</strong><p>Afeta o movimento, como paraplegia ou amputação.</p></li>
+      <li><strong>Sensorial</strong><p>Visual (cegueira, baixa visão) ou auditiva (surdez, perda auditiva).</p></li>
+      <li><strong>Intelectual</strong><p>Afeta o funcionamento intelectual e o comportamento adaptativo.</p></li>
+      <li><strong>Autismo (TEA)</strong><p>Reconhecido como deficiência pela Lei nº 12.764/2012.</p></li>
+    </ul>
+  </div>
+
+  <div class="prose">
+    <h3>Como o capacitismo aparece</h3>
+    <ul class="rows forms">
+      <li><strong>Na linguagem</strong><p>Xingamentos e expressões como “retardado” ou “tá cego?”.</p></li>
+      <li><strong>Na pena ou na “superação”</strong><p>Ver a pessoa como coitada ou como exemplo heroico só por existir.</p></li>
+      <li><strong>Na infantilização</strong><p>Falar com adultos como se fossem crianças, ou com o acompanhante em vez da pessoa.</p></li>
+      <li><strong>Na estrutura</strong><p>Falta de rampa, intérprete de Libras, material em braille ou provas adaptadas.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PALAVRAS -->
+<section class="page" data-page="palavras" aria-labelledby="h-palavras" hidden>
+  <div class="intro">
+    <p class="eyebrow">Não diga / Diga</p>
+    <h2 id="h-palavras">Pequenas trocas que fazem diferença.</h2>
+    <p class="lead">Na dúvida, coloque a pessoa antes da deficiência. Se ela disser como prefere ser chamada, siga o que ela disser.</p>
+  </div>
+
+  <div class="prose">
+    <div class="filters" role="group" aria-label="Filtrar por tipo">
+      <button type="button" id="f-todos" data-filter="todos" aria-pressed="true">Todos</button>
+      <button type="button" id="f-termos" data-filter="termos" aria-pressed="false">Termos</button>
+      <button type="button" id="f-expressoes" data-filter="expressoes" aria-pressed="false">Expressões</button>
+      <button type="button" id="f-elogios" data-filter="elogios" aria-pressed="false">“Elogios”</button>
+    </div>
+    <div class="legend" aria-hidden="true"><span class="say-no">Não diga</span><span class="say-yes">Diga</span></div>
+    <ul class="rows" id="swaps"></ul>
+  </div>
+</section>
+
+<!-- ATITUDES -->
+<section class="page" data-page="atitudes" aria-labelledby="h-atitudes" hidden>
+  <div class="intro">
+    <p class="eyebrow">Atitudes</p>
+    <h2 id="h-atitudes">Respeito vai além das palavras.</h2>
+  </div>
+
+  <ul class="rows dos">
+    <li><strong>Fale com a pessoa</strong><p>Dirija-se a ela, não ao intérprete ou acompanhante.</p></li>
+    <li><strong>Pergunte antes de ajudar</strong><p>“Quer ajuda?” Se sim, pergunte como. Se não, respeite.</p></li>
+    <li><strong>Cadeira, bengala e cão-guia</strong><p>Fazem parte do espaço da pessoa. Não toque nem distraia o cão-guia sem permissão.</p></li>
+    <li><strong>Com pessoas surdas</strong><p>Fale de frente, sem exagerar a boca. Com intérprete, olhe para a pessoa surda.</p></li>
+    <li><strong>Com pessoas cegas</strong><p>Identifique-se ao chegar e avise quando sair. Para guiar, ofereça o braço.</p></li>
+    <li><strong>Nos trabalhos da turma</strong><p>Descreva imagens nos slides, use legendas em vídeos e envie arquivos legíveis por leitores de tela.</p></li>
+    <li><strong>Adaptação é direito</strong><p>Tempo extra, prova ampliada ou ledor garantem igualdade de condições. Não são privilégio.</p></li>
+    <li><strong>Vaga e rampa livres</strong><p>Não estacione na vaga reservada nem bloqueie rampas e pisos táteis.</p></li>
+    <li><strong>Errou? Corrija</strong><p>Peça desculpas, aprenda o termo certo e siga em frente.</p></li>
+  </ul>
+
+  <div class="help" aria-labelledby="h-help">
+    <h3 id="h-help">Precisa de apoio ou presenciou capacitismo?</h3>
+    <p><strong>NAPNE do campus Baturité.</strong> O Núcleo de Acessibilidade às Pessoas com Necessidades Específicas acompanha estudantes e orienta sobre adaptações. Procure o núcleo ou a coordenação do seu curso.</p>
+    <p><strong>Disque 100.</strong> Canal gratuito do Governo Federal para denunciar violações de direitos humanos, inclusive contra pessoas com deficiência.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Material educativo para a comunidade do IFCE campus Baturité. Base legal: Lei nº 13.146/2015 e Lei nº 12.764/2012.</div>
+</footer>
+
+<script>
+const SWAPS = [
+  {c:"termos", no:"Portador de deficiência", yes:"Pessoa com deficiência", why:"Ninguém “porta” uma deficiência como se carregasse uma bolsa."},
+  {c:"termos", no:"Portador de necessidades especiais", yes:"Pessoa com deficiência", why:"“Especial” esconde a palavra deficiência, que não é ofensa."},
+  {c:"termos", no:"Deficiente, aleijado, inválido", yes:"Pessoa com deficiência física", why:"Reduz a pessoa à deficiência. A pessoa vem primeiro."},
+  {c:"termos", no:"Ceguinho", yes:"Pessoa cega ou com deficiência visual", why:"O diminutivo infantiliza."},
+  {c:"termos", no:"Surdo-mudo, mudinho", yes:"Pessoa surda", why:"A maioria das pessoas surdas não é muda. Muitas se comunicam em Libras."},
+  {c:"termos", no:"Linguagem de sinais", yes:"Libras", why:"Libras é uma língua oficial, reconhecida pela Lei nº 10.436/2002."},
+  {c:"termos", no:"Retardado, mongoloide", yes:"Pessoa com deficiência intelectual / com síndrome de Down", why:"Termos médicos antigos que viraram xingamento."},
+  {c:"termos", no:"Preso a uma cadeira de rodas", yes:"Usuário de cadeira de rodas", why:"A cadeira dá liberdade de movimento. Ela não prende ninguém."},
+  {c:"termos", no:"Sofre de autismo", yes:"Pessoa autista", why:"“Sofrer” supõe que a vida da pessoa é só sofrimento."},
+  {c:"termos", no:"Pessoa normal", yes:"Pessoa sem deficiência", why:"Chamar os outros de “normais” coloca quem tem deficiência como anormal."},
+  {c:"expressoes", no:"Tá cego? Não viu?", yes:"Você não percebeu?", why:"Usa a cegueira como sinônimo de distração."},
+  {c:"expressoes", no:"Ficou surdo agora?", yes:"Você não ouviu?", why:"Transforma a surdez em xingamento."},
+  {c:"expressoes", no:"Que coisa retardada", yes:"Isso não faz sentido", why:"Usa a deficiência intelectual como insulto."},
+  {c:"expressoes", no:"Tá autista hoje?", yes:"Tá distraído hoje?", why:"Autismo não é piada nem sinônimo de desatenção."},
+  {c:"expressoes", no:"Deu uma de João sem braço", yes:"Se fez de desentendido", why:"Associa a falta de um braço a malandragem."},
+  {c:"expressoes", no:"Fingir demência", yes:"Fingir que não sabe", why:"Faz piada com uma doença séria."},
+  {c:"expressoes", no:"Que mancada!", yes:"Que vacilo!", why:"Vem de “mancar”: liga o erro a quem anda de forma diferente."},
+  {c:"expressoes", no:"Você é bipolar, hein?", yes:"Você mudou de ideia rápido", why:"Banaliza um transtorno mental real."},
+  {c:"elogios", no:"Nem parece que você tem deficiência!", yes:"Seu trabalho ficou ótimo!", why:"Supõe que ter deficiência é ruim e que parecer sem é melhor."},
+  {c:"elogios", no:"Você é um exemplo de superação", yes:"Você foi muito bem na apresentação", why:"Transforma a vida comum da pessoa em lição para os outros."},
+  {c:"elogios", no:"Coitadinho, que pena", yes:"Trate como qualquer colega", why:"Pena coloca a pessoa abaixo de você."},
+  {c:"elogios", no:"Deus te deu isso porque você é especial", yes:"Não comente a deficiência sem motivo", why:"A pessoa decide o que a deficiência significa para ela."}
+];
+const list=document.getElementById('swaps');
+function esc(s){return s.replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
+list.innerHTML=SWAPS.map(s=>`<li class="swap" data-c="${s.c}">
+  <div class="pair"><span class="say-no"><span class="sr">Não diga: </span>${esc(s.no)}</span><span class="to" aria-hidden="true">→</span><span class="say-yes"><span class="sr">Diga: </span>${esc(s.yes)}</span></div>
+  <p class="why">${esc(s.why)}</p></li>`).join('');
+const sr=document.createElement('style');sr.textContent='.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}';document.head.appendChild(sr);
+function filter(f){
+  list.querySelectorAll('.swap').forEach(li=>li.hidden=!(f==='todos'||li.dataset.c===f));
+  document.querySelectorAll('.filters button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.filter===f));
+}
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>filter(b.dataset.filter)));
+
+const pages=['inicio','entenda','palavras','atitudes'];
+function show(fromNav){
+  let p=(location.hash||'').slice(1); if(!pages.includes(p)) p='inicio';
+  document.querySelectorAll('.page').forEach(s=>s.hidden=s.dataset.page!==p);
+  document.querySelectorAll('nav a').forEach(a=>{if(a.dataset.page===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  if(fromNav){window.scrollTo(0,0);document.getElementById('conteudo').focus({preventScroll:true})}
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]'); if(!a) return;
+  const id=a.getAttribute('href').slice(1); if(!pages.includes(id)) return;
+  e.preventDefault(); history.pushState(null,'','#'+id); show(true);
+});
+window.addEventListener('popstate',()=>show(true));
+window.addEventListener('hashchange',()=>show(true));
+show(false);
+</script>
+</body>
+</html>
